@@ -199,6 +199,41 @@
     max-width: 54ch;
   }
 
+
+  /* ---------- DOMAIN MARKET INDICATORS ---------- */
+  .domain-market {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--emerald);
+  }
+  .domain-market.negative { color: var(--rust); }
+  .market-change { white-space: nowrap; letter-spacing: 0.01em; }
+  .sparkline {
+    width: 76px;
+    height: 22px;
+    overflow: visible;
+    opacity: 0.72;
+  }
+  .sparkline path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .domain-row:hover .domain-market { opacity: 1; }
+  .domain-row:hover .sparkline path {
+    stroke-dasharray: 180;
+    stroke-dashoffset: 180;
+    animation: market-draw 1.1s ease-out forwards;
+  }
+  @keyframes market-draw { to { stroke-dashoffset: 0; } }
+
   /* ---------- PERKS (checklist / ledger) ---------- */
 
   .perks {
@@ -358,6 +393,12 @@
         <div>
           <h3>Financial Statement Analysis</h3>
           <p>Learn to analyze company financial statements and evaluate business performance.</p>
+          <div class="domain-market" aria-label="FSA fictional activity indicator">
+            <span class="market-change">▲ +4.82%</span>
+            <svg class="sparkline" viewBox="0 0 76 22" role="img" aria-hidden="true">
+              <path d="M0 18 L10 15 L20 17 L30 9 L40 12 L50 5 L60 8 L76 2"></path>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="domain-row">
@@ -365,6 +406,12 @@
         <div>
           <h3>Corporate Finance</h3>
           <p>Explore how companies make decisions around funding, investments, valuation, and financial strategy.</p>
+          <div class="domain-market" aria-label="CF fictional activity indicator">
+            <span class="market-change">▲ +2.17%</span>
+            <svg class="sparkline" viewBox="0 0 76 22" role="img" aria-hidden="true">
+              <path d="M0 17 L10 18 L20 12 L30 14 L40 9 L50 11 L60 6 L76 8"></path>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="domain-row">
@@ -372,6 +419,12 @@
         <div>
           <h3>Investment &amp; Wealth Management</h3>
           <p>Learn about markets, investments, portfolio management, and wealth-building strategies.</p>
+          <div class="domain-market" aria-label="IWM fictional activity indicator">
+            <span class="market-change">▲ +6.31%</span>
+            <svg class="sparkline" viewBox="0 0 76 22" role="img" aria-hidden="true">
+              <path d="M0 19 L10 13 L20 15 L30 7 L40 10 L50 4 L60 6 L76 1"></path>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="domain-row">
@@ -379,6 +432,12 @@
         <div>
           <h3>Fintech Projects &amp; Analytics</h3>
           <p>Work on practical finance projects using data, analytics, and technology.</p>
+          <div class="domain-market" aria-label="FPA fictional activity indicator">
+            <span class="market-change">▲ +8.14%</span>
+            <svg class="sparkline" viewBox="0 0 76 22" role="img" aria-hidden="true">
+              <path d="M0 20 L10 17 L20 14 L30 15 L40 8 L50 10 L60 3 L76 5"></path>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="domain-row">
@@ -386,6 +445,12 @@
         <div>
           <h3>PR &amp; Design</h3>
           <p>Handle the club's branding, content, social media, promotions, and visual communication.</p>
+          <div class="domain-market" aria-label="PRD fictional activity indicator">
+            <span class="market-change">▲ +3.42%</span>
+            <svg class="sparkline" viewBox="0 0 76 22" role="img" aria-hidden="true">
+              <path d="M0 18 L10 16 L20 18 L30 11 L40 13 L50 8 L60 9 L76 4"></path>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
