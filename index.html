@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valiara — Finance Club of IIIT Sri City</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0B1B2B;
+    --ivory: #F4EFE6;
+    --emerald: #1B4332;
+    --emerald-light: #2D5940;
+    --gold: #B8863B;
+    --rust: #7A2E2E;
+    --line: rgba(244,239,230,0.18);
+    --line-dark: rgba(11,27,43,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 64px 0 56px;
+  }
+
+  .hero .ticker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    color: var(--gold);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    max-width: 11ch;
+  }
+
+  .hero .sub {
+    margin-top: 22px;
+    font-size: 17px;
+    max-width: 46ch;
+    color: rgba(244,239,230,0.82);
+  }
+
+  .hero .questions {
+    margin-top: 28px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ivory);
+    max-width: 44ch;
+    line-height: 1.5;
+  }
+
+  /* ---------- SECTION LABEL ---------- */
+
+  .section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+
+  .section h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(26px, 4vw, 34px);
+    max-width: 16ch;
+    margin-bottom: 8px;
+  }
+
+  .section .lede {
+    color: rgba(11,27,43,0.65);
+    max-width: 52ch;
+    font-size: 15.5px;
+    margin-bottom: 34px;
+  }
+
+  /* ---------- DOMAINS (ledger style) ---------- */
+
+  .domain-row {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .domain-row:last-child { border-bottom: 1px solid var(--line-dark); }
+
+  .domain-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    padding-top: 3px;
+  }
+
+  .domain-row h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 19px;
+    margin-bottom: 4px;
+  }
+
+  .domain-row p {
+    font-size: 14.5px;
+    color: rgba(11,27,43,0.68);
+    max-width: 54ch;
+  }
+
+  /* ---------- PERKS (checklist / ledger) ---------- */
+
+  .perks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line-dark);
+    border-left: 1px solid var(--line-dark);
+  }
+
+  .perk {
+    border-right: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
+    padding: 18px 20px;
+    font-size: 14.5px;
+  }
+
+  .perk .mark {
+    color: var(--emerald);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-right: 8px;
+  }
+
+  @media (max-width: 560px) {
+    .perks { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- EVENTS strip ---------- */
+
+  .events-strip {
+    background: var(--emerald);
+    color: var(--ivory);
+    padding: 34px 0;
+  }
+
+  .events-strip .section-label { color: var(--gold); }
+
+  .events-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0;
+    font-size: 15px;
+  }
+
+  .events-list span {
+    padding: 0 16px;
+    border-right: 1px solid rgba(244,239,230,0.28);
+  }
+
+  .events-list span:last-child { border-right: none; }
+
+  .events-list .flag {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  @media (max-width: 560px) {
+    .events-list span { border-right: none; padding: 0; width: 100%; }
+  }
+
+  /* ---------- CTA ---------- */
+
+  .cta {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 60px 0 64px;
+    text-align: left;
+  }
+
+  .cta h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(28px, 5vw, 40px);
+    max-width: 14ch;
+    margin-bottom: 14px;
+  }
+
+  .cta .note {
+    color: rgba(244,239,230,0.72);
+    max-width: 44ch;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 15px 30px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .deadline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: rgba(244,239,230,0.75);
+  }
+
+  .deadline b { color: var(--ivory); }
+
+  footer {
+    background: var(--ink);
+    color: rgba(244,239,230,0.45);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-align: center;
+    padding: 22px 0 30px;
+    border-top: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="ticker">
+        <span>VALIARA — FINANCE CLUB · IIIT SRI CITY</span>
+        <span>RECRUITMENTS OPEN</span>
+      </div>
+      <h1>Where finance meets opportunity.</h1>
+      <p class="questions">Ever wondered how companies are valued? How investors make decisions? How markets actually work?</p>
+      <p class="sub">This is your chance to find out — not from a textbook, but by doing, analysing, and building alongside people who are just as curious as you are.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="section">
+      <div class="section-label">01 — DOMAINS</div>
+      <h2>Five ways in, one club.</h2>
+      <p class="lede">Pick where you want to start. You don't need prior expertise in any of these — just the willingness to learn by doing.</p>
+
+      <div class="domain-row">
+        <div class="domain-num">FSA</div>
+        <div>
+          <h3>Financial Statement Analysis</h3>
+          <p>Learn to analyze company financial statements and evaluate business performance.</p>
+        </div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-num">CF</div>
+        <div>
+          <h3>Corporate Finance</h3>
+          <p>Explore how companies make decisions around funding, investments, valuation, and financial strategy.</p>
+        </div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-num">IWM</div>
+        <div>
+          <h3>Investment &amp; Wealth Management</h3>
+          <p>Learn about markets, investments, portfolio management, and wealth-building strategies.</p>
+        </div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-num">FPA</div>
+        <div>
+          <h3>Fintech Projects &amp; Analytics</h3>
+          <p>Work on practical finance projects using data, analytics, and technology.</p>
+        </div>
+      </div>
+      <div class="domain-row">
+        <div class="domain-num">PRD</div>
+        <div>
+          <h3>PR &amp; Design</h3>
+          <p>Handle the club's branding, content, social media, promotions, and visual communication.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">02 — WHAT YOU GET</div>
+      <h2>Membership, in practice.</h2>
+      <p class="lede">This isn't a listening club. Here's what being part of Valiara actually looks like day to day.</p>
+
+      <div class="perks">
+        <div class="perk"><span class="mark">›</span>Real finance projects &amp; case studies</div>
+        <div class="perk"><span class="mark">›</span>Equity research &amp; portfolio simulations</div>
+        <div class="perk"><span class="mark">›</span>Trading simulations &amp; competitions</div>
+        <div class="perk"><span class="mark">›</span>Workshops &amp; structured finance courses</div>
+        <div class="perk"><span class="mark">›</span>Sessions with industry professionals</div>
+        <div class="perk"><span class="mark">›</span>A network of finance-curious peers</div>
+        <div class="perk"><span class="mark">›</span>Access to a curated finance library</div>
+        <div class="perk"><span class="mark">›</span>Ownership — lead teams, run events</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="events-strip">
+    <div class="wrap">
+      <div class="section-label">03 — THIS YEAR</div>
+      <div class="events-list">
+        <span>Finance Case Competitions</span>
+        <span>Portfolio Simulation Challenges</span>
+        <span>Equity Research Comps</span>
+        <span>Trading Events</span>
+        <span>Finance Quizzes</span>
+        <span>Industry Guest Sessions</span>
+        <span class="flag">The Financial Frontier</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="wrap">
+      <h2>You just need curiosity.</h2>
+      <p class="note">No finance background required. Learn, analyze, compete, and lead — with people building something real at IIIT Sri City.</p>
+      <div class="cta-row">
+        <a href="https://forms.gle/CaiqPAvCK3zJeZNu7" class="btn">Apply to Valiara →</a>
+        <div class="deadline">APPLY BY <b>[DEADLINE]</b></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>VALIARA · FINANCE CLUB OF IIIT SRI CITY</footer>
+
+</body>
+</html>
