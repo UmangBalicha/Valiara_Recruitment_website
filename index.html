@@ -3,32 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Force Light Theme Flags -->
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
 <title>Valiara — Finance Club of IIIT Sri City</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style type="text/css">
+  :root { color-scheme: light; supported-color-schemes: light; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { background-color: #F4EFE6; color: #0B1B2B; font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; width: 100%; margin: 0; padding: 0; }
   img { max-width: 100%; display: block; height: auto; border: 0; line-height: 100%; outline: none; text-decoration: none; }
   a { color: inherit; text-decoration: none; }
 
-  /* Mobile responsiveness */
+  /* GMAIL DARK MODE TEXT COLOR LOCKS */
+  @media screen {
+    .g-dark { background-image: linear-gradient(#0B1B2B, #0B1B2B) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: #0B1B2B !important; }
+    .g-rust { background-image: linear-gradient(#7A2E2E, #7A2E2E) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: #7A2E2E !important; }
+    .g-green { background-image: linear-gradient(#1B4332, #1B4332) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: #1B4332 !important; }
+    .g-gray-lede { background-image: linear-gradient(#5c656d, #5c656d) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: #5c656d !important; }
+    .g-gray-desc { background-image: linear-gradient(#555f67, #555f67) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: #555f67 !important; }
+    .g-ticker { background-image: linear-gradient(#2e3b46, #2e3b46) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; color: #2e3b46 !important; }
+  }
+
+  /* MOBILE RESPONSIVENESS */
   @media only screen and (max-width: 600px) {
     .wrap-container { padding: 0 16px !important; }
     .hero-title { font-size: 38px !important; line-height: 1.1 !important; }
     .cta-title { font-size: 30px !important; }
-    .stack-column { display: block !important; width: 100% !important; border-left: none !important; box-sizing: border-box !important; }
-    .market-ticker { font-size: 11px !important; line-height: 2 !important; }
+    .stack-column { display: block !important; width: 100% !important; border-right: none !important; border-left: none !important; box-sizing: border-box !important; }
+    .market-ticker-text { font-size: 11px !important; line-height: 2 !important; }
   }
 </style>
 </head>
 <body style="background-color: #F4EFE6; color: #0B1B2B; font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
 
   <!-- HERO SECTION -->
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#0B1B2B" style="background-color: #0B1B2B; color: #F4EFE6;">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#0B1B2B" style="background-color: #0B1B2B; background-image: linear-gradient(#0B1B2B, #0B1B2B); color: #F4EFE6;">
     <tr>
       <td align="center" style="padding: 48px 0 56px 0;">
+        <!--[if (gte mso 9)|(IE)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="760"><tr><td align="center" valign="top" width="760"><![endif]-->
         <table class="wrap-container" width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 760px; padding: 0 24px;">
           <tr>
             <td align="left">
@@ -38,80 +53,82 @@
                 <tr>
                   <!-- REPLACE THE SRC ATTRIBUTE BELOW WITH YOUR HOSTED LOGO URL -->
                   <td width="52" valign="middle">
-                    <img src="https://github.com/user-attachments/assets/9aea69f2-dd7b-41f8-89c9-ab757e1cad3f" alt="Valiara" width="52" height="52" style="width: 52px; height: 52px; border-radius: 10px; display: block; background-color: #F4EFE6;">
+                    <img src="YOUR_LOGO_URL_HERE.png" alt="Valiara" width="52" height="52" style="width: 52px; height: 52px; border-radius: 10px; display: block; background-color: #F4EFE6;">
                   </td>
-                  <td valign="middle" style="padding-left: 14px; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.06em; color: rgba(244,239,230,0.75);">
+                  <td valign="middle" style="padding-left: 14px; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.06em; color: #baBAB7;">
                     VALIARA<br>
                     <span style="font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-style: italic; color: #B8863B; letter-spacing: 0;">"Born a liability, destined to yield"</span>
                   </td>
                 </tr>
               </table>
 
-              <!-- Ticker -->
-              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.03em; color: #B8863B; border-bottom: 1px solid #3C4A57; padding-bottom: 18px; margin-bottom: 36px;">
-                <div style="margin-bottom: 4px;">VALIARA — FINANCE CLUB · IIIT SRI CITY</div>
-                <div>RECRUITMENTS OPEN</div>
+              <!-- Ticker (One single unified line) -->
+              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.03em; color: #B8863B; border-bottom: 1px solid #3C4A57; padding-bottom: 18px; margin-bottom: 36px; text-align: left;">
+                VALIARA — FINANCE CLUB · IIIT SRI CITY &nbsp;&nbsp;&nbsp;&nbsp; RECRUITMENTS OPEN
               </div>
 
               <!-- Heading -->
-              <h1 class="hero-title" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: -0.01em; margin: 0;">Where finance meets opportunity.</h1>
-              <p style="margin-top: 28px; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 19px; color: #F4EFE6; line-height: 1.5; max-width: 500px;">Ever wondered how companies are valued? How investors make decisions? How markets actually work?</p>
-              <p style="margin-top: 22px; font-size: 17px; color: rgba(244,239,230,0.82); max-width: 500px; line-height: 1.55;">This is your chance to find out — not from a textbook, but by doing, analysing, and building alongside people who are just as curious as you are.</p>
+              <div class="hero-title" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: -0.01em; margin: 0; padding: 0; color: #F4EFE6;">Where finance meets opportunity.</div>
+              <div style="padding-top: 28px; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 19px; color: #F4EFE6; line-height: 1.5; max-width: 500px; margin: 0;">Ever wondered how companies are valued? How investors make decisions? How markets actually work?</div>
+              <div style="padding-top: 22px; font-size: 17px; color: #cac8c4; max-width: 500px; line-height: 1.55; margin: 0;">This is your chance to find out — not from a textbook, but by doing, analysing, and building alongside people who are just as curious as you are.</div>
             </td>
           </tr>
         </table>
+        <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
       </td>
     </tr>
   </table>
 
   <!-- MAIN CONTENT -->
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4EFE6" style="background-color: #F4EFE6;">
+  <!-- Tan Background Locked -->
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4EFE6" style="background-color: #F4EFE6; background-image: linear-gradient(#F4EFE6, #F4EFE6);">
     <tr>
       <td align="center" style="padding: 56px 0;">
+        <!--[if (gte mso 9)|(IE)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="760"><tr><td align="center" valign="top" width="760"><![endif]-->
         <table class="wrap-container" width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 760px; padding: 0 24px;">
           <tr>
             <td align="left">
               
               <!-- 01 DOMAINS -->
-              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.02em; color: #7A2E2E; margin-bottom: 10px;">01 — DOMAINS</div>
-              <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 32px; margin: 0 0 8px 0; color: #0B1B2B;">Five ways in, one club.</h2>
-              <p style="color: rgba(11,27,43,0.65); font-size: 15.5px; margin-bottom: 34px; max-width: 500px;">Pick where you want to start. You don't need prior expertise in any of these — just the willingness to learn by doing.</p>
+              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.02em; padding-bottom: 10px; margin: 0; color: #7A2E2E;"><span class="g-rust">01 — DOMAINS</span></div>
+              <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 32px; padding-bottom: 8px; margin: 0; color: #0B1B2B;"><span class="g-dark">Five ways in, one club.</span></div>
+              <div style="font-size: 15.5px; padding-bottom: 34px; margin: 0; max-width: 500px; color: #5c656d;"><span class="g-gray-lede">Pick where you want to start. You don't need prior expertise in any of these — just the willingness to learn by doing.</span></div>
 
               <!-- Domain Entries -->
               <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-top: 1px solid #DCD8CF;">
                 <tr>
                   <td width="40" valign="top" style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 13px; color: #B8863B; padding-top: 23px; padding-bottom: 20px;">FSA</td>
                   <td valign="top" style="padding-top: 20px; padding-bottom: 20px;">
-                    <h3 style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; margin: 0 0 4px 0; color: #0B1B2B;">Financial Statement Analysis</h3>
-                    <p style="font-size: 14.5px; color: rgba(11,27,43,0.68); margin: 0; max-width: 500px;">Learn to analyze company financial statements and evaluate business performance.</p>
+                    <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; padding-bottom: 4px; margin: 0; color: #0B1B2B;"><span class="g-dark">Financial Statement Analysis</span></div>
+                    <div style="font-size: 14.5px; margin: 0; max-width: 500px; color: #555f67;"><span class="g-gray-desc">Learn to analyze company financial statements and evaluate business performance.</span></div>
                   </td>
                 </tr>
                 <tr>
                   <td width="40" valign="top" style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 13px; color: #B8863B; padding-top: 23px; padding-bottom: 20px; border-top: 1px solid #DCD8CF;">CF</td>
                   <td valign="top" style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #DCD8CF;">
-                    <h3 style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; margin: 0 0 4px 0; color: #0B1B2B;">Corporate Finance</h3>
-                    <p style="font-size: 14.5px; color: rgba(11,27,43,0.68); margin: 0; max-width: 500px;">Explore how companies make decisions around funding, investments, valuation, and financial strategy.</p>
+                    <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; padding-bottom: 4px; margin: 0; color: #0B1B2B;"><span class="g-dark">Corporate Finance</span></div>
+                    <div style="font-size: 14.5px; margin: 0; max-width: 500px; color: #555f67;"><span class="g-gray-desc">Explore how companies make decisions around funding, investments, valuation, and financial strategy.</span></div>
                   </td>
                 </tr>
                 <tr>
                   <td width="40" valign="top" style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 13px; color: #B8863B; padding-top: 23px; padding-bottom: 20px; border-top: 1px solid #DCD8CF;">IWM</td>
                   <td valign="top" style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #DCD8CF;">
-                    <h3 style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; margin: 0 0 4px 0; color: #0B1B2B;">Investment &amp; Wealth Management</h3>
-                    <p style="font-size: 14.5px; color: rgba(11,27,43,0.68); margin: 0; max-width: 500px;">Learn about markets, investments, portfolio management, and wealth-building strategies.</p>
+                    <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; padding-bottom: 4px; margin: 0; color: #0B1B2B;"><span class="g-dark">Investment &amp; Wealth Management</span></div>
+                    <div style="font-size: 14.5px; margin: 0; max-width: 500px; color: #555f67;"><span class="g-gray-desc">Learn about markets, investments, portfolio management, and wealth-building strategies.</span></div>
                   </td>
                 </tr>
                 <tr>
                   <td width="40" valign="top" style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 13px; color: #B8863B; padding-top: 23px; padding-bottom: 20px; border-top: 1px solid #DCD8CF;">FPA</td>
                   <td valign="top" style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #DCD8CF;">
-                    <h3 style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; margin: 0 0 4px 0; color: #0B1B2B;">Fintech Projects &amp; Analytics</h3>
-                    <p style="font-size: 14.5px; color: rgba(11,27,43,0.68); margin: 0; max-width: 500px;">Work on practical finance projects using data, analytics, and technology.</p>
+                    <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; padding-bottom: 4px; margin: 0; color: #0B1B2B;"><span class="g-dark">Fintech Projects &amp; Analytics</span></div>
+                    <div style="font-size: 14.5px; margin: 0; max-width: 500px; color: #555f67;"><span class="g-gray-desc">Work on practical finance projects using data, analytics, and technology.</span></div>
                   </td>
                 </tr>
                 <tr>
                   <td width="40" valign="top" style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 13px; color: #B8863B; padding-top: 23px; padding-bottom: 20px; border-top: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF;">PRD</td>
                   <td valign="top" style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF;">
-                    <h3 style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; margin: 0 0 4px 0; color: #0B1B2B;">PR &amp; Design</h3>
-                    <p style="font-size: 14.5px; color: rgba(11,27,43,0.68); margin: 0; max-width: 500px;">Handle the club's branding, content, social media, promotions, and visual communication.</p>
+                    <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 19px; padding-bottom: 4px; margin: 0; color: #0B1B2B;"><span class="g-dark">PR &amp; Design</span></div>
+                    <div style="font-size: 14.5px; margin: 0; max-width: 500px; color: #555f67;"><span class="g-gray-desc">Handle the club's branding, content, social media, promotions, and visual communication.</span></div>
                   </td>
                 </tr>
               </table>
@@ -119,110 +136,114 @@
               <!-- COMPACT STOCK TICKER (INTEGRATED ON TAN BODY) -->
               <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 24px; margin-bottom: 10px; border-top: 1px dashed #DCD8CF; border-bottom: 1px dashed #DCD8CF;">
                 <tr>
-                  <td align="left" class="market-ticker" style="padding: 12px 4px; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12.5px; color: #0B1B2B; line-height: 1.6;">
-                    <span style="color: #7A2E2E; font-weight: 600; margin-right: 14px; letter-spacing: 0.04em; white-space: nowrap;">MARKET INDICES</span>
-                    <span style="white-space: nowrap; margin-right: 14px; color: rgba(11,27,43,0.85);">FSA <span style="color: #1B4332; font-weight: 600;">▲ 4.82%</span></span>
-                    <span style="white-space: nowrap; margin-right: 14px; color: rgba(11,27,43,0.85);">CORP FIN <span style="color: #1B4332; font-weight: 600;">▲ 2.17%</span></span>
-                    <span style="white-space: nowrap; margin-right: 14px; color: rgba(11,27,43,0.85);">IWM <span style="color: #1B4332; font-weight: 600;">▲ 0.94%</span></span>
-                    <span style="white-space: nowrap; color: rgba(11,27,43,0.85);">FPA <span style="color: #1B4332; font-weight: 600;">▲ 6.31%</span></span>
+                  <td align="left" class="market-ticker-text" style="padding: 12px 4px; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12.5px; color: #0B1B2B; line-height: 1.6;">
+                    <span style="color: #7A2E2E; font-weight: 600; margin-right: 14px; letter-spacing: 0.04em; white-space: nowrap;"><span class="g-rust">MARKET INDICES</span></span>
+                    <span style="white-space: nowrap; margin-right: 14px; color: #2e3b46;"><span class="g-ticker">FSA</span> <span style="color: #1B4332; font-weight: 600;"><span class="g-green">▲ 4.82%</span></span></span>
+                    <span style="white-space: nowrap; margin-right: 14px; color: #2e3b46;"><span class="g-ticker">CORP FIN</span> <span style="color: #1B4332; font-weight: 600;"><span class="g-green">▲ 2.17%</span></span></span>
+                    <span style="white-space: nowrap; margin-right: 14px; color: #2e3b46;"><span class="g-ticker">IWM</span> <span style="color: #1B4332; font-weight: 600;"><span class="g-green">▲ 0.94%</span></span></span>
+                    <span style="white-space: nowrap; color: #2e3b46;"><span class="g-ticker">FPA</span> <span style="color: #1B4332; font-weight: 600;"><span class="g-green">▲ 6.31%</span></span></span>
                   </td>
                 </tr>
               </table>
 
               <!-- 02 WHAT YOU GET -->
-              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.02em; color: #7A2E2E; margin-bottom: 10px; margin-top: 48px;">02 — WHAT YOU GET</div>
-              <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 32px; margin: 0 0 8px 0; color: #0B1B2B;">Membership, in practice.</h2>
-              <p style="color: rgba(11,27,43,0.65); font-size: 15.5px; margin-bottom: 34px; max-width: 500px;">This isn't a listening club. Here's what being part of Valiara actually looks like day to day.</p>
+              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.02em; padding-bottom: 10px; padding-top: 48px; margin: 0; color: #7A2E2E;"><span class="g-rust">02 — WHAT YOU GET</span></div>
+              <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 32px; padding-bottom: 8px; margin: 0; color: #0B1B2B;"><span class="g-dark">Membership, in practice.</span></div>
+              <div style="font-size: 15.5px; padding-bottom: 34px; margin: 0; max-width: 500px; color: #5c656d;"><span class="g-gray-lede">This isn't a listening club. Here's what being part of Valiara actually looks like day to day.</span></div>
 
               <!-- Perks Table -->
               <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-top: 1px solid #DCD8CF; border-left: 1px solid #DCD8CF;">
                 <tr>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>Real finance projects &amp; case studies
-                  </th>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>Sessions with industry professionals
-                  </th>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">Real finance projects &amp; case studies</span>
+                  </td>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">Sessions with industry professionals</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>Equity research &amp; portfolio simulations
-                  </th>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>A network of finance-curious peers
-                  </th>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">Equity research &amp; portfolio simulations</span>
+                  </td>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">A network of finance-curious peers</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>Trading simulations &amp; competitions
-                  </th>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>Access to a curated finance library
-                  </th>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">Trading simulations &amp; competitions</span>
+                  </td>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">Access to a curated finance library</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>Workshops &amp; structured finance courses
-                  </th>
-                  <th class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; font-weight: normal; text-align: left; color: #0B1B2B;">
-                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;">›</span>Ownership — lead teams, run events
-                  </th>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">Workshops &amp; structured finance courses</span>
+                  </td>
+                  <td class="stack-column" width="50%" valign="top" style="border-right: 1px solid #DCD8CF; border-bottom: 1px solid #DCD8CF; padding: 18px 20px; font-size: 14.5px; text-align: left; color: #0B1B2B;">
+                    <span style="color: #1B4332; font-family: 'IBM Plex Mono', Courier, monospace; margin-right: 8px;"><span class="g-green">›</span></span><span class="g-dark">Ownership — lead teams, run events</span>
+                  </td>
                 </tr>
               </table>
 
             </td>
           </tr>
         </table>
+        <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
       </td>
     </tr>
   </table>
 
   <!-- EVENTS STRIP -->
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#1B4332" style="background-color: #1B4332; color: #F4EFE6;">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#1B4332" style="background-color: #1B4332; background-image: linear-gradient(#1B4332, #1B4332); color: #F4EFE6;">
     <tr>
       <td align="center" style="padding: 34px 0;">
+        <!--[if (gte mso 9)|(IE)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="760"><tr><td align="center" valign="top" width="760"><![endif]-->
         <table class="wrap-container" width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 760px; padding: 0 24px;">
           <tr>
             <td align="left">
-              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.02em; color: #B8863B; margin-bottom: 10px;">03 — THIS YEAR</div>
-              <div style="font-size: 15px; line-height: 2.2;">
+              <div style="font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; letter-spacing: 0.02em; padding-bottom: 10px; color: #B8863B;">03 — THIS YEAR</div>
+              <div style="font-size: 15px; line-height: 2.2; color: #F4EFE6;">
                 <span style="white-space: nowrap;">Finance Case Competitions</span>
-                <span style="color: rgba(244,239,230,0.28); margin: 0 8px;">|</span>
+                <span style="color: #577364; margin: 0 8px;">|</span>
                 <span style="white-space: nowrap;">Portfolio Simulation Challenges</span>
-                <span style="color: rgba(244,239,230,0.28); margin: 0 8px;">|</span>
+                <span style="color: #577364; margin: 0 8px;">|</span>
                 <span style="white-space: nowrap;">Equity Research Comps</span>
-                <span style="color: rgba(244,239,230,0.28); margin: 0 8px;">|</span>
+                <span style="color: #577364; margin: 0 8px;">|</span>
                 <span style="white-space: nowrap;">Trading Events</span>
-                <span style="color: rgba(244,239,230,0.28); margin: 0 8px;">|</span>
+                <span style="color: #577364; margin: 0 8px;">|</span>
                 <span style="white-space: nowrap;">Finance Quizzes</span>
-                <span style="color: rgba(244,239,230,0.28); margin: 0 8px;">|</span>
+                <span style="color: #577364; margin: 0 8px;">|</span>
                 <span style="white-space: nowrap;">Industry Guest Sessions</span>
-                <span style="color: rgba(244,239,230,0.28); margin: 0 8px;">|</span>
+                <span style="color: #577364; margin: 0 8px;">|</span>
                 <span style="white-space: nowrap; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-style: italic; color: #B8863B;">The Financial Frontier</span>
               </div>
             </td>
           </tr>
         </table>
+        <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
       </td>
     </tr>
   </table>
 
   <!-- CTA SECTION -->
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#0B1B2B" style="background-color: #0B1B2B; color: #F4EFE6;">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#0B1B2B" style="background-color: #0B1B2B; background-image: linear-gradient(#0B1B2B, #0B1B2B); color: #F4EFE6;">
     <tr>
       <td align="center" style="padding: 60px 0 64px 0;">
+        <!--[if (gte mso 9)|(IE)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="760"><tr><td align="center" valign="top" width="760"><![endif]-->
         <table class="wrap-container" width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 760px; padding: 0 24px;">
           <tr>
             <td align="left">
-              <h2 class="cta-title" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 36px; margin: 0 0 14px 0;">You just need curiosity.</h2>
-              <p style="color: rgba(244,239,230,0.72); font-size: 15px; max-width: 450px; margin: 0 0 30px 0; line-height: 1.55;">No finance background required. Learn, analyze, compete, and lead — with people building something real at IIIT Sri City.</p>
+              <div class="cta-title" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 36px; padding-bottom: 14px; margin: 0; color: #F4EFE6;">You just need curiosity.</div>
+              <div style="color: #b2b3b0; font-size: 15px; max-width: 450px; padding-bottom: 30px; margin: 0; line-height: 1.55;">No finance background required. Learn, analyze, compete, and lead — with people building something real at IIIT Sri City.</div>
               
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td align="center" bgcolor="#B8863B" style="background-color: #B8863B;">
+                  <td align="center" bgcolor="#B8863B" style="background-color: #B8863B; background-image: linear-gradient(#B8863B, #B8863B);">
                     <a href="https://forms.gle/CaiqPAvCK3zJeZNu7" target="_blank" style="display: inline-block; padding: 15px 30px; font-weight: 600; font-size: 15px; color: #0B1B2B; text-decoration: none; letter-spacing: 0.01em; white-space: nowrap;">Apply to Valiara →</a>
                   </td>
-                  <td valign="middle" style="padding-left: 20px; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 13px; color: rgba(244,239,230,0.75);">
+                  <td valign="middle" style="padding-left: 20px; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 13px; color: #baBAB7;">
                     APPLY BY <b style="color: #F4EFE6;">[DEADLINE]</b>
                   </td>
                 </tr>
@@ -230,14 +251,15 @@
             </td>
           </tr>
         </table>
+        <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
       </td>
     </tr>
   </table>
 
   <!-- FOOTER -->
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#0B1B2B" style="background-color: #0B1B2B; border-top: 1px solid #1c2b39;">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#0B1B2B" style="background-color: #0B1B2B; background-image: linear-gradient(#0B1B2B, #0B1B2B); border-top: 1px solid #1c2b39;">
     <tr>
-      <td align="center" style="padding: 22px 0 30px 0; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; color: rgba(244,239,230,0.45);">
+      <td align="center" style="padding: 22px 0 30px 0; font-family: 'IBM Plex Mono', Courier, monospace; font-size: 12px; color: #737a7b;">
         VALIARA · FINANCE CLUB OF IIIT SRI CITY
       </td>
     </tr>
