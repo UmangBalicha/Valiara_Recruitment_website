@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valiara — Finance Club of IIIT Sri City</title>
+  <meta name="description" content="Valiara is the Finance Club of IIIT Sri City. No finance background required — learn through market simulations, real case studies, fintech projects, and finance competitions. Recruitments open now.">
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Valiara — Finance Club of IIIT Sri City">
+  <meta property="og:description" content="No finance background required. Learn finance by doing — market simulations, case studies, fintech projects & competitions. Recruitments open now.">
+  <meta property="og:image" content="https://valiara-recruitment.vercel.app/og-card.png">
+  <meta property="og:url" content="https://valiara-recruitment.vercel.app">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valiara — Finance Club of IIIT Sri City">
+  <meta name="twitter:description" content="No finance background required. Learn finance by doing — market simulations, case studies, fintech projects & competitions.">
+  <meta name="twitter:image" content="https://valiara-recruitment.vercel.app/og-card.png">
+
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Newspaper Palette */
+      --paper: #f0ebe1;
+      --paper-dim: #e4decb;
+      --ink: #111111;
+      --ink-light: #333333;
+      --profit: #2a5a3b;
+      --highlight: #b8863b;
+      --accent-rust: #8b3a3a;
+      
+      --border-thin: 1px solid var(--ink);
+      --border-thick: 3px solid var(--ink);
+      
+      --font-sans: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-mono: 'IBM Plex Mono', Courier, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .ledger-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      border-left: var(--border-thick);
+      border-right: var(--border-thick);
+      background: var(--paper);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; color: var(--ink); }
+    .mono { font-family: var(--font-mono); text-transform: uppercase; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Accessible focus state for every keyboard-navigable control */
+    a:focus-visible,
+    .scroll-hover:focus-visible {
+      outline: 3px solid var(--highlight);
+      outline-offset: 3px;
+    }
+
+    /* =========================================
+       TOP APPLY BAR
+       ========================================= */
+    .top-apply-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: var(--highlight);
+      border-bottom: var(--border-thick);
+      padding: 12px 16px;
+    }
+
+    .cta-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: var(--paper);
+      border: var(--border-thin);
+      padding: 9px 20px;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .cta-top .cta-arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-top:hover,
+    .cta-top.is-active {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .cta-top:hover .cta-arrow,
+    .cta-top.is-active .cta-arrow {
+      transform: translateX(4px);
+    }
+
+    .cta-top:active {
+      transform: translate(0, 0);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .deadline-tag {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+      color: var(--paper);
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: var(--ink);
+      padding: 6px 14px;
+      border: var(--border-thin);
+    }
+
+    .deadline-tag.is-urgent {
+      color: var(--paper);
+      background: var(--accent-rust);
+      animation: urgentPulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes urgentPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(139, 58, 58, 0.55); }
+      50% { box-shadow: 0 0 0 6px rgba(139, 58, 58, 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .deadline-tag.is-urgent { animation: none; }
+    }
+
+    /* =========================================
+       HEADER & TICKER
+       ========================================= */
+    .top-header {
+      display: flex;
+      align-items: stretch;
+      border-bottom: var(--border-thick);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 32px;
+      border-right: 3px solid var(--paper);
+      white-space: nowrap;
+    }
+
+    .brand-block img {
+      width: 48px;
+      height: 48px;
+      background: var(--paper);
+      padding: 2px;
+    }
+
+    .brand-text { display: flex; flex-direction: column; justify-content: center; }
+    .brand-text h1 { color: var(--paper); font-size: 26px; line-height: 1; letter-spacing: 0.02em; }
+    .brand-text p { font-family: var(--font-mono); font-size: 12px; color: var(--highlight); margin-top: 6px; }
+
+    .live-ticker {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      background: var(--ink);
+    }
+
+    .marquee {
+      animation: scrollLeft 25s linear infinite;
+      display: flex;
+    }
+    .marquee > div {
+      display: flex;
+      padding-right: 32px; 
+    }
+    .marquee span { display: inline-flex; align-items: center; gap: 8px; margin-right: 32px; color: var(--paper); }
+    .t-up { color: #5bc57a; }
+    .t-alert { color: var(--paper); animation: blink 1s step-end infinite; }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+    /* =========================================
+       HERO & GRAPH GRID
+       ========================================= */
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: var(--border-thick);
+    }
+
+    .hero-text-block {
+      flex: 1 1 42%;
+      min-width: 320px;
+      padding: 60px 40px;
+      border-right: var(--border-thick);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-text-block h2 {
+      font-size: clamp(36px, 4.5vw, 68px);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-text-block p {
+      font-size: 17px;
+      color: var(--ink-light);
+      max-width: 95%;
+      margin-bottom: 32px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent-rust);
+      margin-bottom: 14px;
+    }
+
+    .btn-apply-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--profit);
+      border: var(--border-thick);
+      padding: 14px 28px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-apply-hero .cta-arrow { display: inline-block; transition: transform 0.2s ease; }
+
+    .btn-apply-hero:hover,
+    .btn-apply-hero.is-active {
+      background: var(--ink);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .btn-apply-hero:hover .cta-arrow,
+    .btn-apply-hero.is-active .cta-arrow { transform: translateX(4px); }
+    .btn-apply-hero:active { transform: translate(0,0); box-shadow: 1px 1px 0 var(--ink); }
+
+    @media (max-width: 600px) {
+      .action-row { flex-direction: column; align-items: stretch; }
+      .btn-apply-hero { justify-content: center; }
+      .deadline-tag { text-align: center; }
+    }
+
+    .hero-hook {
+      font-family: var(--font-mono);
+      font-size: 15px !important;
+      font-weight: 600;
+      color: var(--ink) !important;
+      background: var(--paper-dim);
+      border: var(--border-thin);
+      padding: 12px 16px;
+      max-width: 100% !important;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .action-badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      border: var(--border-thin);
+      padding: 8px 16px;
+      background: var(--ink);
+      color: var(--paper);
+      text-transform: uppercase;
+      cursor: default;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .action-badge:hover,
+    .action-badge.is-active {
+      background: var(--paper);
+      color: var(--ink);
+      border-color: var(--ink);
+      transform: translateY(-3px);
+    }
+
+    .chart-container {
+      position: relative;
+      background: var(--paper-dim);
+      flex: 1 1 58%;
+      min-width: 320px;
+      min-height: 420px;
+      align-self: stretch;
+      overflow: hidden;
+    }
+
+    .chart-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px; 
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 0 20px;
+      border-bottom: var(--border-thin);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(228, 222, 203, 0.95);
+      backdrop-filter: blur(4px);
+      z-index: 10;
+    }
+
+    .canvas-wrapper {
+      position: absolute;
+      top: 36px; 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      cursor: crosshair;
+      max-width: 100%;
+    }
+
+    /* =========================================
+       DOMAINS / MARKET WATCHLIST
+       ========================================= */
+    .section-header {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-bottom: var(--border-thick);
+      background: var(--paper-dim);
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .watchlist-section {
+      border-bottom: var(--border-thick);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .data-table th:last-child {
+      text-align: right;
+    }
+
+    .data-table th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-light);
+      padding: 12px 32px;
+      border-bottom: var(--border-thin);
+      background: #f8f5f0;
+      text-transform: uppercase;
+    }
+    
+
+    .data-table tr {
+      border-bottom: var(--border-thin);
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .data-table tr:last-child { border-bottom: none; }
+
+    .data-table tr:hover,
+    .data-table tr.is-active {
+      background-color: rgba(17, 17, 17, 0.035);
+      box-shadow: inset 6px 0 0 var(--highlight);
+    }
+    .data-table tr:hover .sym,
+    .data-table tr.is-active .sym {
+      color: var(--accent-rust);
+    }
+    .data-table tr:hover .d-name,
+    .data-table tr.is-active .d-name {
+      transform: translateX(4px);
+    }
+
+    .data-table td { padding: 24px 32px; vertical-align: top; }
+
+    .sym {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      width: 10%;
+      border-right: var(--border-thin);
+      transition: color 0.15s ease;
+      vertical-align: middle !important;
+    }
+
+    .metric {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--profit);
+      text-align: right;
+      width: 15%;
+      vertical-align: middle !important;
+    }
+
+    .d-name {
+      vertical-align: middle !important;
+      font-size: 22px;
+      font-weight: 700;
+      font-family: var(--font-serif);
+      margin-bottom: 6px;
+      width: 35%;
+      transition: transform 0.18s ease;
+    }
+    .sub-text { font-size: 15px; color: var(--ink-light); transition: color 0.15s ease; }
+    
+    .d-focus { vertical-align: middle !important; width: 40%; font-family: var(--font-mono); font-size: 14px; line-height: 1.6; border-left: var(--border-thin); transition: border-color 0.15s ease; }
+    .d-focus ul { list-style: none; margin-top: 8px; }
+    .d-focus li { display: flex; align-items: flex-start; }
+    .d-focus li::before { content: '>'; color: var(--accent-rust); margin-right: 8px; font-weight: bold;}
+
+
+    /* =========================================
+       OPERATIONS & EVENTS (2-COLUMN GRID)
+       ========================================= */
+    .ops-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 24px;
+      border-bottom: var(--border-thick);
+    }
+
+    .ops-col {
+      border: var(--border-thick);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      padding: 20px 32px;
+      border-bottom: var(--border-thick);
+      background: var(--paper-dim);
+      color: var(--ink);
+    }
+
+    .dense-list {
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    .dense-list li {
+      padding: 20px 32px;
+      border-bottom: var(--border-thin);
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.5;
+      cursor: default;
+      transition: background-color 0.18s ease, padding-left 0.18s ease;
+    }
+    .dense-list li:last-child { border-bottom: none; }
+
+    .dense-list li:hover,
+    .dense-list li.is-active {
+      background-color: rgba(17, 17, 17, 0.035);
+      padding-left: 40px;
+    }
+
+    .dense-list li::before {
+      content: '■';
+      color: var(--accent-rust);
+      margin-right: 14px;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .list-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .date-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--highlight);
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    /* =========================================
+       EVENT PILLS
+       ========================================= */
+
+
+
+    
+
+    /* =========================================
+       MEMBER ROLE GRID
+       ========================================= */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .benefit-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 32px 28px;
+      border-right: var(--border-thin);
+      transition: background-color 0.18s ease, padding-left 0.18s ease;
+    }
+
+    .benefit-card:last-child { border-right: none; }
+
+    .benefit-card:hover,
+    .benefit-card.is-active {
+      background-color: rgba(17, 17, 17, 0.035);
+      padding-left: 36px;
+    }
+
+    .benefit-card:hover .benefit-sym,
+    .benefit-card.is-active .benefit-sym {
+      color: var(--accent-rust);
+      border-color: var(--accent-rust);
+    }
+
+    .benefit-sym {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      border: var(--border-thin);
+      padding: 4px 10px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .benefit-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .benefit-desc {
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .benefit-card:nth-child(2n) { border-right: none; }
+      .benefit-card:nth-child(-n+2) { border-bottom: var(--border-thin); }
+    }
+
+    @media (max-width: 600px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .benefit-card {
+        border-right: none !important;
+        border-bottom: var(--border-thin);
+        padding: 24px 20px;
+      }
+      .benefit-card:last-child { border-bottom: none; }
+      .benefit-card:hover,
+      .benefit-card.is-active { padding-left: 28px; }
+    }
+
+    /* =========================================
+       RECRUITMENT CTA
+       ========================================= */
+    .cta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      border-bottom: var(--border-thick);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .cta-info {
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cta-info h2 { color: var(--paper); font-size: 36px; margin-bottom: 12px; text-transform: uppercase;}
+    .cta-info p { font-family: var(--font-mono); font-size: 15px; color: var(--highlight); text-transform: uppercase; }
+    .cta-info .cta-deadline { color: var(--paper); margin-top: 10px; font-size: 13px; opacity: 0.85; }
+
+    .btn-apply {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 80px;
+      background: var(--profit);
+      color: var(--paper);
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-left: var(--border-thick);
+      cursor: pointer;
+      transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .btn-apply .cta-arrow {
+      display: inline-block;
+      transition: transform 0.22s ease;
+    }
+
+    .btn-apply:hover,
+    .btn-apply.is-active {
+      background: var(--paper);
+      color: var(--profit);
+      transform: translateY(-4px);
+      box-shadow: inset 0 -6px 0 var(--highlight);
+    }
+
+    .btn-apply:hover .cta-arrow,
+    .btn-apply.is-active .cta-arrow {
+      transform: translateX(8px);
+    }
+
+    .btn-apply:active {
+      transform: translateY(-1px);
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    footer {
+      padding: 20px 32px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      background: var(--paper-dim);
+      margin-top: auto;
+      border-top: var(--border-thick);
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+    }
+
+    .footer-link {
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-decoration: underline;
+      text-decoration-color: rgba(17, 17, 17, 0.3);
+      text-underline-offset: 3px;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+
+    .footer-link:hover,
+    .footer-link.is-active {
+      color: var(--accent-rust);
+      text-decoration-color: var(--accent-rust);
+    }
+
+    @media (max-width: 600px) {
+      footer { flex-direction: column; text-align: center; gap: 16px; }
+      .footer-brand { align-items: center; }
+      .footer-links { justify-content: center; }
+    }
+
+    /* =========================================
+       REDUCED MOTION
+       ========================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .cta-top,
+      .cta-top .cta-arrow,
+      .btn-apply,
+      .btn-apply .cta-arrow,
+      .action-badge,
+      .d-name,
+      .dense-list li,
+      .data-table tr {
+        transition: none !important;
+      }
+      .cta-top:hover, .cta-top.is-active,
+      .btn-apply:hover, .btn-apply.is-active,
+      .action-badge:hover, .action-badge.is-active,
+      .data-table tr:hover .d-name, .data-table tr.is-active .d-name {
+        transform: none !important;
+      }
+    }
+
+    /* =========================================
+       RESPONSIVE
+       ========================================= */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-text-block { border-right: none; border-bottom: var(--border-thick); padding: 48px 32px; }
+      .chart-container { height: 400px; min-height: 400px; max-height: 400px; }
+      .ops-grid { grid-template-columns: 1fr; }
+
+      /* Domain table becomes a stacked card layout instead of hiding data */
+      .data-table thead { display: none; }
+      .data-table, .data-table tbody { display: block; width: 100%; }
+      .data-table tr {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+          "sym name metric"
+          "focus focus focus";
+        column-gap: 16px;
+        align-items: start;
+        border-bottom: var(--border-thick);
+        padding: 20px 24px;
+      }
+      .data-table tr:last-child { border-bottom: none; }
+      .data-table tr:hover,
+      .data-table tr.is-active {
+        box-shadow: inset 4px 0 0 var(--highlight);
+      }
+
+      .data-table td { padding: 0; border: none !important; }
+
+      .sym {
+        grid-area: sym;
+        border-right: none;
+        padding-right: 0;
+        font-size: 20px;
+        width: auto;
+        align-self: center;
+      }
+      .d-name {
+        grid-area: name;
+        width: auto;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+      }
+      .metric {
+        grid-area: metric;
+        justify-self: end;
+        text-align: right;
+        width: auto;
+        font-size: 15px;
+        align-self: center;
+        white-space: nowrap;
+      }
+      .d-focus {
+        grid-area: focus;
+        display: block;
+        border-left: none;
+        border-top: var(--border-thin);
+        margin-top: 16px;
+        padding-top: 14px;
+        width: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .top-header { flex-direction: column; align-items: stretch; }
+      .brand-block { border-right: none; border-bottom: 1px solid var(--paper); justify-content: center; padding: 24px; }
+      .live-ticker { padding: 16px 0; }
+
+      .top-apply-bar { flex-direction: column; gap: 10px; padding: 14px 16px; }
+      .cta-top { width: 100%; justify-content: center; font-size: 12px; padding: 10px 14px; }
+      .deadline-tag { text-align: center; font-size: 12px; }
+
+      .data-table tr {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+          "sym name metric"
+          "focus focus focus";
+        padding: 18px 20px;
+        column-gap: 10px;
+      }
+      .sym { font-size: 17px; }
+      .d-name { font-size: 18px; }
+      .d-name .sub-text { font-size: 13px; }
+      .metric { font-size: 13px; }
+      .d-focus { font-size: 13px; margin-top: 12px; padding-top: 12px; }
+      .d-focus ul { margin-top: 6px; }
+
+      .cta-bar { flex-direction: column; }
+      .btn-apply { padding: 32px; border-left: none; border-top: 3px solid var(--paper); font-size: 20px; }
+    }
+
+    @media (max-width: 420px) {
+      .data-table tr {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+          "sym metric"
+          "name name"
+          "focus focus";
+        row-gap: 8px;
+      }
+      .metric { justify-self: end; align-self: center; }
+      .d-name { margin-top: 2px; }
+    }
+  
+    /* ===== RECRUITMENT-FIRST ADDITIONS ===== */
+    .hero-points { list-style: none; padding: 0; margin: 4px 0 24px; display: grid; gap: 10px; }
+    .hero-points li { font-size: 15px; line-height: 1.5; padding-left: 28px; position: relative; }
+    .hero-points li::before { content: ""; position: absolute; left: 3px; top: 0.5em; width: 9px; height: 8px; background: var(--ink); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    .hero-points b { font-weight: 700; }
+    .about-block { padding: 24px 32px; }
+    .about-block p { font-size: 16px; line-height: 1.6; margin: 0 0 12px; }
+    .benefits-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .benefits-grid.cols-3 .benefit-card { border-right: var(--border-thin); border-bottom: var(--border-thin); }
+    .benefits-grid.cols-3 .benefit-card:nth-child(3n) { border-right: none; }
+    .benefits-grid.cols-3 .benefit-card:nth-last-child(-n+3) { border-bottom: none; }
+    @media (max-width: 1024px) {
+      .benefits-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .benefits-grid.cols-3 .benefit-card:nth-child(3n) { border-right: var(--border-thin); }
+      .benefits-grid.cols-3 .benefit-card:nth-child(2n) { border-right: none; }
+      .benefits-grid.cols-3 .benefit-card:nth-last-child(-n+3) { border-bottom: var(--border-thin); }
+      .benefits-grid.cols-3 .benefit-card:nth-last-child(-n+2) { border-bottom: none; }
+    }
+    @media (max-width: 800px) {
+      
+      .about-block { padding-left: 20px; padding-right: 20px; }
+    }
+    @media (max-width: 600px) {
+      .benefits-grid.cols-3 { grid-template-columns: 1fr; }
+      .benefits-grid.cols-3 .benefit-card { border-bottom: var(--border-thin) !important; }
+      .benefits-grid.cols-3 .benefit-card:last-child { border-bottom: none !important; }
+    }
+
+    
+    
+
+    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+    .skip-link { position: absolute; left: -9999px; top: 0; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 100; font-family: var(--font-mono); }
+    .skip-link:focus { left: 0; }
+    .page-nav { display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 12px 32px; border-bottom: var(--border-thick); background: var(--paper-dim); font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; }
+    .page-nav a { color: var(--ink); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+    .page-nav a:hover, .page-nav a:focus-visible { border-bottom-color: var(--accent-rust); color: var(--accent-rust); }
+    .after-intro { padding: 24px 32px 20px; font-size: 16px; line-height: 1.5; border-bottom: var(--border-thin); }
+    @media (max-width: 600px) { .page-nav { padding: 10px 20px; gap: 2px 16px; } .after-intro { padding: 20px; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .marquee { animation: none; }
+      .t-alert { animation: none; }
+    }
+
+    .section-header, .chart-header { gap: 12px; }
+    @media (max-width: 600px) {
+      .section-header { flex-wrap: wrap; font-size: 13px; padding: 14px 20px; gap: 2px 12px; }
+      .chart-header { flex-wrap: wrap; gap: 2px 12px; }
+      .page-nav { font-size: 12px; gap: 2px 14px; padding: 10px 16px; }
+      .benefit-card, .benefits-grid.cols-3 .benefit-card { padding: 18px 20px; gap: 6px; }
+    }
+
+    .event-pills { display: flex; flex-wrap: wrap; gap: 14px; padding: 28px 32px; }
+    .event-pill { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.02em; border: var(--border-thin); padding: 10px 18px; background: var(--paper); cursor: default; transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease; }
+    .event-pill:hover, .event-pill.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: translateY(-3px); }
+    @media (max-width: 600px) { .event-pills { padding: 20px; gap: 10px; } .event-pill { font-size: 12px; padding: 8px 14px; } }
+    @media (prefers-reduced-motion: reduce) { .event-pill { transition: none; } .event-pill:hover, .event-pill.is-active { transform: none; } }
+
+    .deadline-tag-stacked { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 3px; white-space: normal; }
+    .deadline-timer { font-family: var(--font-mono); font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+    .deadline-timer[hidden] { display: none; }
+    .deadline-timer-top { font-size: 14px; color: var(--ink); }
+    .deadline-timer-hero { font-size: 12px; font-weight: 500; opacity: 0.85; }
+    @media (max-width: 600px) {
+      .deadline-tag-stacked { align-items: center; }
+      .deadline-timer-top { font-size: 12px; }
+      .deadline-timer-hero { font-size: 11px; }
+    }
+
+    .btn-apply { flex-direction: column; gap: 6px; }
+    .btn-apply-main { display: inline-flex; align-items: center; gap: 18px; }
+    .btn-deadline { font-size: 14px; font-weight: 700; letter-spacing: 0.04em; }
+    .btn-timer { font-size: 12px; font-weight: 500; opacity: 0.85; }
+    @media (max-width: 600px) { .btn-apply-main { gap: 12px; } .btn-deadline { font-size: 12px; } .btn-timer { font-size: 11px; } }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#about">Skip to content</a>
+  <div class="ledger-container">
+
+    <header class="top-header">
+      <div class="brand-block">
+        <img src="logo.png" alt="Valiara Logo">
+        <div class="brand-text">
+          <h1>VALIARA</h1>
+          <p>BORN A LIABILITY, DESTINED TO YIELD</p>
+        </div>
+      </div>
+      
+      <div class="live-ticker">
+        <div class="marquee">
+          <div>
+            <span class="t-alert">RECRUITMENTS OPEN</span>
+            <span>MARKET INDICES:</span>
+            <span>FSA <b class="t-up">▲ 4.82%</b></span>
+            <span>CORP FIN <b class="t-up">▲ 2.17%</b></span>
+            <span>IWM <b class="t-up">▲ 0.94%</b></span>
+            <span>FPA <b class="t-up">▲ 6.31%</b></span>
+            <span>PRD <b class="t-up">▲ 1.45%</b></span>
+          </div>
+          <div aria-hidden="true">
+            <span class="t-alert">RECRUITMENTS OPEN</span>
+            <span>MARKET INDICES:</span>
+            <span>FSA <b class="t-up">▲ 4.82%</b></span>
+            <span>CORP FIN <b class="t-up">▲ 2.17%</b></span>
+            <span>IWM <b class="t-up">▲ 0.94%</b></span>
+            <span>FPA <b class="t-up">▲ 6.31%</b></span>
+            <span>PRD <b class="t-up">▲ 1.45%</b></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="top-apply-bar">
+      <a href="https://forms.gle/CaiqPAvCK3zJeZNu7" target="_blank" rel="noopener noreferrer" class="cta-top scroll-hover">
+        <span class="cta-label">Apply Now</span>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+      <span class="deadline-tag" id="deadlineTagTop">Deadline: Mon, 12 Oct</span>
+      <span class="deadline-timer deadline-timer-top" data-timer role="timer" aria-label="Time left to apply"></span>
+    </div>
+
+        <nav class="page-nav" aria-label="Page sections">
+      <a href="#about">About</a>
+      <a href="#why-join">Why join</a>
+      <a href="#after-apply">After you apply</a>
+      <a href="#teams">Teams</a>
+      <a href="#whats-coming">Events</a>
+    </nav>
+
+    <section class="hero-grid">
+      <div class="hero-text-block">
+        <span class="hero-eyebrow mono">RECRUITMENTS 2026 // NOW OPEN</span>
+        <h2>Recruitments are open.<br>Join Valiara.</h2>
+        <p>Valiara is the Finance Club of IIIT Sri City. We're looking for first-years and anyone curious about money, markets and business to join the team.</p>
+        <ul class="hero-points">
+          <li><b>Learn real finance</b> — statements, valuation, markets, fintech — by doing, not just lectures.</li>
+          <li><b>Build things</b> — case studies, simulations, analytics projects, events.</li>
+          <li><b>No finance background needed.</b> Bring curiosity, we'll teach the rest.</li>
+        </ul>
+        <div class="action-row">
+          <a href="https://forms.gle/CaiqPAvCK3zJeZNu7" target="_blank" rel="noopener noreferrer" class="btn-apply-hero scroll-hover">
+            <span class="cta-label">Apply Now</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <span class="deadline-tag is-urgent deadline-tag-stacked" id="deadlineTagHero"><span id="deadlineTextHero">Deadline: Mon, 12 Oct</span><span class="deadline-timer deadline-timer-hero" data-timer role="timer" aria-label="Time left to apply"></span></span>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <div class="chart-header">
+          <span>VAL_FOCUS // FINANCE LEARNING</span>
+          <span>VAL_IDX // CLUB ACTIVITY <span id="statusIndicator">🟢</span> <span id="statusText" style="margin-left: 4px;">+0.00%</span></span>
+        </div>
+        <div class="canvas-wrapper" id="canvasWrap">
+          <canvas id="marketCanvas"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="watchlist-section" id="about">
+      <div class="section-header">
+        <span>01 // ABOUT VALIARA</span>
+        <span>WHAT IS THE CLUB</span>
+      </div>
+      <div class="about-block">
+        <p>Valiara is the Finance Club of IIIT Sri City — a student-run space to learn how money, markets and companies work, and to apply it on real problems. Five teams, open to all branches, no finance background needed.</p>
+      </div>
+    </section>
+
+    <section class="watchlist-section" id="why-join">
+      <div class="section-header">
+        <span>02 // WHY JOIN</span>
+        <span>WHAT YOU GET</span>
+      </div>
+      <div class="benefits-grid cols-3">
+        <div class="benefit-card scroll-hover">
+          <span class="benefit-sym mono">1</span>
+          <span class="benefit-title">Learn finance by doing</span>
+          <span class="benefit-desc">Read financial statements, value a business and understand markets, through real case studies and fintech projects.</span>
+        </div>
+        <div class="benefit-card scroll-hover">
+          <span class="benefit-sym mono">2</span>
+          <span class="benefit-title">Compete &amp; hear from the industry</span>
+          <span class="benefit-desc">Take part in case competitions, quizzes and trading events, and attend guest sessions with people who work in finance.</span>
+        </div>
+        <div class="benefit-card scroll-hover">
+          <span class="benefit-sym mono">3</span>
+          <span class="benefit-title">Lead &amp; belong</span>
+          <span class="benefit-desc">Own events and teams from year one, and meet people who care about the same things you do.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="watchlist-section" id="after-apply">
+      <div class="section-header">
+        <span>03 // AFTER YOU APPLY</span>
+        <span>WHAT TO EXPECT</span>
+      </div>
+      <p class="after-intro">After you apply, there will be a basic interview covering:</p>
+      <div class="benefits-grid cols-3">
+        <div class="benefit-card scroll-hover">
+          <span class="benefit-sym mono">1</span>
+          <span class="benefit-title">Basic finance knowledge</span>
+          <span class="benefit-desc">Only the most basic ideas. Nothing advanced.</span>
+        </div>
+        <div class="benefit-card scroll-hover">
+          <span class="benefit-sym mono">2</span>
+          <span class="benefit-title">Management skills</span>
+          <span class="benefit-desc">How you take responsibility and work with others.</span>
+        </div>
+        <div class="benefit-card scroll-hover">
+          <span class="benefit-sym mono">3</span>
+          <span class="benefit-title">Communication skills</span>
+          <span class="benefit-desc">How clearly you put your ideas across.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="watchlist-section" id="teams">
+      <div class="section-header">
+        <span>04 // APPLY TO A TEAM</span>
+        <span>PICK YOUR TRACK</span>
+      </div>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>SYM</th>
+            <th>TEAM</th>
+            <th>IN PLAIN WORDS</th>
+            <th>IDX</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="scroll-hover">
+            <td class="sym">FSA</td>
+            <td class="d-name">Financial Statement Analysis</td>
+            <td class="d-focus">
+              <ul>
+                <li><span>Read a company's reports and judge how it's doing</span></li>
+                <li><span>Explain the numbers in simple words</span></li>
+              </ul>
+            </td>
+            <td class="metric">▲ 4.82%</td>
+          </tr>
+          <tr class="scroll-hover">
+            <td class="sym">CF</td>
+            <td class="d-name">Corporate Finance</td>
+            <td class="d-focus">
+              <ul>
+                <li><span>How companies raise money and decide what to spend it on</span></li>
+                <li><span>Work out what a business is worth</span></li>
+              </ul>
+            </td>
+            <td class="metric">▲ 2.17%</td>
+          </tr>
+          <tr class="scroll-hover">
+            <td class="sym">IWM</td>
+            <td class="d-name">Investment &amp; Wealth Management</td>
+            <td class="d-focus">
+              <ul>
+                <li><span>How people invest in shares and other assets</span></li>
+                <li><span>Build and track practice portfolios</span></li>
+              </ul>
+            </td>
+            <td class="metric">▲ 0.94%</td>
+          </tr>
+          <tr class="scroll-hover">
+            <td class="sym">FPA</td>
+            <td class="d-name">Fintech Projects &amp; Analytics</td>
+            <td class="d-focus">
+              <ul>
+                <li><span>Build data and tech projects around money</span></li>
+                <li><span>Use data to find patterns</span></li>
+              </ul>
+            </td>
+            <td class="metric">▲ 6.31%</td>
+          </tr>
+          <tr class="scroll-hover">
+            <td class="sym">PRD</td>
+            <td class="d-name">PR &amp; Design</td>
+            <td class="d-focus">
+              <ul>
+                <li><span>Posters, social media and the club's look</span></li>
+                <li><span>Spread the word about our events</span></li>
+              </ul>
+            </td>
+            <td class="metric">▲ 1.45%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="watchlist-section" id="whats-coming">
+      <div class="section-header">
+        <span>05 // WHAT'S COMING</span>
+        <span>EVENTS WE'LL RUN</span>
+      </div>
+      <div class="event-pills">
+        <span class="event-pill scroll-hover">Finance Case Competitions</span>
+        <span class="event-pill scroll-hover">Portfolio Simulation Challenges</span>
+        <span class="event-pill scroll-hover">Equity Research Comps</span>
+        <span class="event-pill scroll-hover">Trading Events</span>
+        <span class="event-pill scroll-hover">Finance Quizzes</span>
+        <span class="event-pill scroll-hover">Industry Guest Sessions</span>
+        <span class="event-pill scroll-hover">The Financial Frontier</span>
+      </div>
+    </section>
+
+    <section class="cta-bar">
+      <div class="cta-info">
+        <h2>Ready to join? Curiosity is enough.</h2>
+        <p>No finance background required. Apply before the deadline.</p>
+      </div>
+      <a href="https://forms.gle/CaiqPAvCK3zJeZNu7" target="_blank" rel="noopener noreferrer" class="btn-apply scroll-hover">
+        <span class="btn-apply-main">
+          <span class="cta-label">Apply Now</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </span>
+        <span class="btn-deadline" id="deadlineTagBottom">Deadline: Mon, 12 Oct</span>
+        <span class="deadline-timer btn-timer" data-timer role="timer" aria-label="Time left to apply"></span>
+      </a>
+    </section>
+
+    <footer>
+      <div class="footer-brand">
+        <span>VALIARA - FINANCE CLUB OF IIIT SRI CITY</span>
+        <span>V.2026.01 // SYSTEM STATUS: NOMINAL</span>
+        <span>Website built by Umang Balicha - Club Co-ordinator</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/valiara_iiits/" target="_blank" rel="noopener noreferrer" class="footer-link scroll-hover">Instagram</a>
+        <a href="https://www.linkedin.com/company/valiara-iiits/" target="_blank" rel="noopener noreferrer" class="footer-link scroll-hover">LinkedIn</a>
+        <a href="https://chat.whatsapp.com/HUU1XgB24XS6qSUZibscay" target="_blank" rel="noopener noreferrer" class="footer-link scroll-hover">WhatsApp</a>
+        <a href="mailto:valiara.club@iiits.in" class="footer-link scroll-hover">valiara.club@iiits.in</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    /* =========================================
+       MOBILE "SCROLL-HOVER" INTERACTION SYSTEM
+       Desktop already gets real :hover from CSS.
+       Devices without a fine hover-capable pointer
+       (phones/tablets) get an equivalent visual
+       spotlight: the element nearest the screen centre
+       is highlighted as the user scrolls (touch devices).
+       ========================================= */
+    (function () {
+      var supportsRealHover = window.matchMedia(
+        '(hover: hover) and (pointer: fine)'
+      ).matches;
+
+      if (supportsRealHover) return; // desktop: native :hover handles it
+
+      // Buttons are never "spotlighted" - they stay in their normal colours
+      // and only react while being pressed (:active).
+      var targets = Array.prototype.filter.call(
+        document.querySelectorAll('.scroll-hover'),
+        function (el) {
+          return !el.matches('.cta-top, .btn-apply-hero, .btn-apply, .footer-link');
+        }
+      );
+      if (!targets.length) return;
+
+      // Spotlight: only the ONE element closest to the middle of the screen
+      // is active, so the effect is visible instead of everything lighting up.
+      var ticking = false;
+      function update() {
+        ticking = false;
+        var vw = window.innerWidth, vh = window.innerHeight;
+        var cx = vw / 2, cy = vh * 0.5;
+        var best = null, bestDist = Infinity;
+        targets.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.bottom < 0 || r.top > vh) return;
+          var dy = (r.top + r.height / 2) - cy;
+          var dx = (r.left + r.width / 2) - cx;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (Math.abs(dy) < vh * 0.45 && d < bestDist) { best = el; bestDist = d; }
+        });
+        targets.forEach(function (el) {
+          if (el === best) el.classList.add('is-active');
+          else el.classList.remove('is-active');
+        });
+      }
+      function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
+    })();
+  </script>
+
+  <script>
+    const canvas = document.getElementById('marketCanvas');
+    const wrapper = document.getElementById('canvasWrap');
+    const statusIndicator = document.getElementById('statusIndicator');
+    const statusText = document.getElementById('statusText');
+    const ctx = canvas.getContext('2d');
+    
+    function resizeCanvas() {
+      const rect = wrapper.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height; 
+    }
+
+    let candles = [];
+    const candleWidth = 10;
+    const spacing = 24; 
+    let basePrice = 1250.00;
+    let offset = 0;
+    let mouseX = -100;
+    let mouseY = -100;
+
+    const colorUp = '#2a5a3b'; 
+    const colorDown = '#8b3a3a'; 
+
+    let displayPercent = 0.00; // Track smoothed state for mathematical dampening
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      mouseX = -100;
+      mouseY = -100;
+    });
+
+    function generateHistoricalCandle(xPos, openPrice) {
+      let isUp = Math.random() > 0.2; 
+      const bodySize = Math.random() * 18 + 4;
+      const wickSize = Math.random() * 14 + 2;
+      
+      let close = isUp ? (openPrice + bodySize) : (openPrice - bodySize);
+      
+      if (close < basePrice - 35) { close = openPrice + bodySize; isUp = true; }
+      if (close > basePrice + 35) { close = openPrice - bodySize; isUp = false; }
+
+      const high = Math.max(openPrice, close) + wickSize;
+      const low = Math.min(openPrice, close) - wickSize;
+
+      return { x: xPos, open: openPrice, close, high, low, color: isUp ? colorUp : colorDown };
+    }
+
+    function initChart() {
+      resizeCanvas();
+      candles = [];
+      let currentPrice = basePrice;
+      const maxCandles = Math.ceil(canvas.width / spacing) + 3;
+      
+      for (let i = 0; i < maxCandles - 1; i++) {
+        let newCandle = generateHistoricalCandle(i * spacing, currentPrice);
+        candles.push(newCandle);
+        currentPrice = newCandle.close;
+      }
+      
+      candles.push({
+        x: (maxCandles - 1) * spacing,
+        open: currentPrice,
+        close: currentPrice,
+        high: currentPrice,
+        low: currentPrice,
+        color: colorUp
+      });
+    }
+
+    let liveTargetPrice = basePrice;
+    
+    function updateLivePulse() {
+      if (!candles.length) initChart(); // guard: chart can be emptied by a resize
+      const liveCandle = candles[candles.length - 1];
+      if (!liveCandle) return;
+      
+      if (Math.random() < 0.03) { 
+        // Mean-reversion: pull price back toward basePrice so it oscillates
+        // in a range instead of compounding upward (or downward) forever.
+        const distanceFromBase = liveCandle.open - basePrice;
+        const reversionPull = -distanceFromBase * 0.35;
+        const bullishBias = 6; // keeps the ~80/20 green bias without unbounded drift
+        const noise = (Math.random() - 0.5) * 50;
+        const volatility = reversionPull + bullishBias + noise;
+        liveTargetPrice = liveCandle.open + volatility;
+      }
+
+      liveCandle.close += (liveTargetPrice - liveCandle.close) * 0.04;
+      
+      if (liveCandle.close >= liveCandle.high) liveCandle.high = liveCandle.close + (Math.random() * 4);
+      if (liveCandle.close <= liveCandle.low) liveCandle.low = liveCandle.close - (Math.random() * 4);
+      
+      liveCandle.color = liveCandle.close >= liveCandle.open ? colorUp : colorDown;
+
+      if (candles.length >= 2) {
+        const c1 = candles[candles.length - 1];
+        const c2 = candles[candles.length - 2];
+        
+        const movement1 = (c1.close - c1.open) / c1.open;
+        const movement2 = (c2.close - c2.open) / c2.open;
+        const targetPercent = ((movement1 + movement2) / 2) * 100;
+
+        const alpha = 0.04; 
+        displayPercent += alpha * (targetPercent - displayPercent);
+
+        const isPositive = displayPercent >= 0;
+        
+        if (statusIndicator) {
+          statusIndicator.textContent = isPositive ? '🟢' : '🔴';
+        }
+        
+        if (statusText) {
+          const sign = isPositive ? '+' : '';
+          statusText.textContent = `${sign}${displayPercent.toFixed(2)}%`;
+          statusText.style.color = isPositive ? '#5bc57a' : '#8b3a3a';
+        }
+      }
+    }
+
+    const scrollSpeed = 0.025; 
+    let smoothMin = NaN;
+    let smoothMax = NaN;
+
+    function drawChart() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const rightPadding = 65; 
+      const bottomPadding = 25; 
+      const chartWidth = canvas.width - rightPadding;
+      const chartHeight = canvas.height - bottomPadding;
+
+      offset += scrollSpeed; 
+      if (offset >= spacing) {
+        offset -= spacing; 
+        candles.shift();
+        candles.forEach((c, idx) => c.x = idx * spacing);
+        
+        const lastClose = candles[candles.length - 1].close;
+        candles.push({
+          x: (candles.length) * spacing,
+          open: lastClose,
+          close: lastClose,
+          high: lastClose,
+          low: lastClose,
+          color: colorUp
+        });
+        liveTargetPrice = lastClose;
+      }
+
+      updateLivePulse();
+
+      // Auto-scale the visible price range to the candles actually being drawn
+      // this frame, so price drift over time can never push candles outside
+      // the chart's drawable area.
+      let visibleMin = Infinity;
+      let visibleMax = -Infinity;
+      candles.forEach((candle) => {
+        const drawX = candle.x - offset;
+        if (drawX < -30 || drawX > chartWidth + 30) return;
+        if (candle.low < visibleMin) visibleMin = candle.low;
+        if (candle.high > visibleMax) visibleMax = candle.high;
+      });
+      if (!isFinite(visibleMin) || !isFinite(visibleMax)) {
+        visibleMin = basePrice - 45;
+        visibleMax = basePrice + 45;
+      }
+      const rangePadding = Math.max((visibleMax - visibleMin) * 0.15, 5);
+      const targetMin = visibleMin - rangePadding;
+      const targetMax = visibleMax + rangePadding;
+      if (!isFinite(smoothMin)) { smoothMin = targetMin; smoothMax = targetMax; }
+      smoothMin += (targetMin - smoothMin) * 0.1;
+      smoothMax += (targetMax - smoothMax) * 0.1;
+      // Never let the smoothed window lag behind the actual data - clamp hard
+      // so a candle can never end up outside the drawable area even mid-transition.
+      const minPrice = Math.min(smoothMin, visibleMin - 2);
+      const maxPrice = Math.max(smoothMax, visibleMax + 2);
+
+      function priceToY(price) { return chartHeight - ((price - minPrice) / (maxPrice - minPrice)) * chartHeight; }
+      function yToPrice(y) { return maxPrice - (y / chartHeight) * (maxPrice - minPrice); }
+
+      ctx.strokeStyle = 'rgba(17, 17, 17, 0.08)';
+      ctx.lineWidth = 1;
+      for (let p = Math.ceil(minPrice / 10) * 10; p <= maxPrice; p += 10) {
+        const y = priceToY(p);
+        if (y >= 0 && y <= chartHeight) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(chartWidth, y);
+          ctx.stroke();
+        }
+      }
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(0, 0, chartWidth, chartHeight);
+      ctx.clip(); 
+
+      let maPoints = [];
+      candles.forEach((candle) => {
+        const drawX = candle.x - offset;
+        if (drawX < -30 || drawX > chartWidth + 30) return;
+
+        const yOpen = priceToY(candle.open);
+        const yClose = priceToY(candle.close);
+        const yHigh = priceToY(candle.high);
+        const yLow = priceToY(candle.low);
+
+        const maVal = (candle.open + candle.close) / 2;
+        maPoints.push({ x: drawX + candleWidth / 2, y: priceToY(maVal) });
+
+        const centerX = drawX + candleWidth / 2;
+        const topY = Math.min(yOpen, yClose);
+        const bodyHeight = Math.max(Math.abs(yOpen - yClose), 1.5);
+
+        // Wick: thin center line spanning high to low
+        ctx.strokeStyle = candle.color;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(centerX, yHigh);
+        ctx.lineTo(centerX, yLow);
+        ctx.stroke();
+
+        // Body: solid fill for both up and down candles (realistic candlestick look)
+        ctx.fillStyle = candle.color;
+        ctx.fillRect(drawX, topY, candleWidth, bodyHeight);
+
+        // Subtle border for definition
+        ctx.strokeStyle = candle.color;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(drawX, topY, candleWidth, bodyHeight);
+      });
+
+      if (maPoints.length > 1) {
+        ctx.strokeStyle = 'var(--highlight)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(maPoints[0].x, maPoints[0].y);
+        for (let i = 1; i < maPoints.length; i++) {
+          ctx.lineTo(maPoints[i].x, maPoints[i].y);
+        }
+        ctx.stroke();
+      }
+
+      if (mouseX > 0 && mouseX < chartWidth && mouseY > 0 && mouseY < chartHeight) {
+        ctx.strokeStyle = 'rgba(184, 134, 59, 0.9)';
+        ctx.setLineDash([3, 3]);
+        ctx.lineWidth = 1;
+        
+        ctx.beginPath();
+        ctx.moveTo(mouseX, 0); ctx.lineTo(mouseX, chartHeight);
+        ctx.moveTo(0, mouseY); ctx.lineTo(chartWidth, mouseY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      ctx.restore(); 
+      
+      ctx.fillStyle = '#111';
+      ctx.font = '11px "IBM Plex Mono", monospace';
+      for (let p = Math.ceil(minPrice / 10) * 10; p <= maxPrice; p += 10) {
+        const y = priceToY(p);
+        if (y >= 0 && y <= chartHeight) {
+          ctx.fillText(p.toFixed(2), chartWidth + 8, y + 4);
+        }
+      }
+
+      ctx.fillStyle = '#555';
+      let startTime = 9.5; 
+      for (let x = 40; x < chartWidth; x += 100) {
+        let hours = Math.floor(startTime);
+        let mins = Math.floor((startTime - hours) * 60);
+        let timeStr = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+        ctx.fillText(timeStr, x - 15, canvas.height - 8);
+        startTime += 0.5;
+      }
+
+      if (mouseX > 0 && mouseX < chartWidth && mouseY > 0 && mouseY < chartHeight) {
+        const hoverPrice = yToPrice(mouseY);
+        ctx.fillStyle = 'var(--ink)';
+        ctx.fillRect(chartWidth, mouseY - 12, rightPadding, 24);
+        ctx.fillStyle = '#5bc57a';
+        ctx.fillText(hoverPrice.toFixed(2), chartWidth + 8, mouseY + 4);
+      }
+
+      requestAnimationFrame(drawChart);
+    }
+
+    let chartStarted = false;
+    function startChartLoop() {
+      if (chartStarted) return;
+      chartStarted = true;
+      requestAnimationFrame(drawChart);
+    }
+
+    // Keep the canvas' pixel size in sync with its wrapper at all times.
+    // A one-time resize on window 'load' isn't enough: if web fonts finish
+    // loading (or any other layout shift happens) after that first paint,
+    // the wrapper's box can change size while the canvas stays locked at
+    // its old dimensions, leaving a blank gap. ResizeObserver catches any
+    // size change to the wrapper itself, whatever the cause.
+    if ('ResizeObserver' in window) {
+      let resizePending = false;
+      const ro = new ResizeObserver(() => {
+        if (resizePending) return;
+        resizePending = true;
+        requestAnimationFrame(() => {
+          resizePending = false;
+          initChart();
+          startChartLoop();
+        });
+      });
+      ro.observe(wrapper);
+    } else {
+      // Fallback for older browsers without ResizeObserver support.
+      window.addEventListener('load', () => {
+        initChart();
+        startChartLoop();
+      });
+      window.addEventListener('resize', initChart);
+    }
+
+    // Extra safety net: re-measure once web fonts are fully loaded, in case
+    // a browser fires ResizeObserver before font-driven reflow settles.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        initChart();
+        startChartLoop();
+      });
+    }
+
+    window.addEventListener('load', startChartLoop);
+  </script>
+
+  <script>
+    /* =========================================
+       DEADLINE — single source of truth.
+       Change DEADLINE_ISO here only; both tags,
+       and the "closed" state, update from it.
+       ========================================= */
+    (function () {
+      var DEADLINE_ISO = '2026-10-12T23:59:59+05:30'; // Mon 12 Oct, end of day IST
+      var deadline = new Date(DEADLINE_ISO);
+      var now = new Date();
+      var msLeft = deadline - now;
+
+      var topTag = document.getElementById('deadlineTagTop');
+      var heroTag = document.getElementById('deadlineTextHero');
+      var bottomTag = document.getElementById('deadlineTagBottom');
+      var applyLinks = document.querySelectorAll('a[href*="forms.gle"]');
+
+      function setClosedState() {
+        if (topTag) topTag.textContent = 'Applications closed';
+        if (heroTag) heroTag.textContent = 'Applications closed';
+        if (bottomTag) bottomTag.textContent = 'Applications closed';
+        document.querySelectorAll('[data-timer]').forEach(function (t) { t.hidden = true; });
+      }
+
+      function setOpenState(daysLeft) {
+        var label = 'Deadline: Mon, 12 Oct';
+        var bottomLabel = 'Deadline: Mon, 12 Oct';
+        if (daysLeft <= 1) {
+          label = 'Deadline: Today';
+          bottomLabel = 'Deadline: Today';
+        } else if (daysLeft <= 3) {
+          label = 'Deadline: Mon, 12 Oct (' + daysLeft + 'd left)';
+        }
+        if (topTag) topTag.textContent = label;
+        if (heroTag) heroTag.textContent = label;
+        if (bottomTag) bottomTag.textContent = bottomLabel;
+      }
+
+      if (msLeft <= 0) {
+        setClosedState();
+        // Don't hide the Apply links automatically — a stale form is safer
+        // to leave live than to silently break a link if the date is wrong
+        // or the club chooses to extend it. Flag visually only.
+        applyLinks.forEach(function (a) {
+          a.style.opacity = '0.6';
+        });
+      } else {
+        var daysLeft = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
+        setOpenState(daysLeft);
+      }
+
+      // Live countdown beside / below the deadline tags
+      var timers = document.querySelectorAll('[data-timer]');
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      function tick() {
+        var left = deadline - new Date();
+        if (left <= 0) {
+          timers.forEach(function (t) { t.hidden = true; });
+          clearInterval(timerId);
+          return;
+        }
+        var d = Math.floor(left / 86400000);
+        var h = Math.floor(left % 86400000 / 3600000);
+        var m = Math.floor(left % 3600000 / 60000);
+        var sec = Math.floor(left % 60000 / 1000);
+        var text = d + 'd ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(sec) + 's left';
+        timers.forEach(function (t) { t.textContent = text; });
+      }
+      var timerId = setInterval(tick, 1000);
+      tick();
+    })();
+  </script>
+</body>
+</html>
