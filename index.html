@@ -995,7 +995,7 @@
         <span class="cta-label">Apply Now</span>
         <span class="cta-arrow" aria-hidden="true">→</span>
       </a>
-      <span class="deadline-tag" id="deadlineTagTop">Deadline: Mon, 12 Oct</span>
+      <span class="deadline-tag" id="deadlineTagTop">Deadline: Tue, 13 Oct</span>
       <span class="deadline-timer deadline-timer-top" data-timer role="timer" aria-label="Time left to apply"></span>
     </div>
 
@@ -1022,7 +1022,7 @@
             <span class="cta-label">Apply Now</span>
             <span class="cta-arrow" aria-hidden="true">→</span>
           </a>
-          <span class="deadline-tag is-urgent deadline-tag-stacked" id="deadlineTagHero"><span id="deadlineTextHero">Deadline: Mon, 12 Oct</span><span class="deadline-timer deadline-timer-hero" data-timer role="timer" aria-label="Time left to apply"></span></span>
+          <span class="deadline-tag is-urgent deadline-tag-stacked" id="deadlineTagHero"><span id="deadlineTextHero">Deadline: Tue, 13 Oct</span><span class="deadline-timer deadline-timer-hero" data-timer role="timer" aria-label="Time left to apply"></span></span>
         </div>
       </div>
       
@@ -1197,7 +1197,7 @@
           <span class="cta-label">Apply Now</span>
           <span class="cta-arrow" aria-hidden="true">→</span>
         </span>
-        <span class="btn-deadline" id="deadlineTagBottom">Deadline: Mon, 12 Oct</span>
+        <span class="btn-deadline" id="deadlineTagBottom">Deadline: Tue, 13 Oct</span>
         <span class="deadline-timer btn-timer" data-timer role="timer" aria-label="Time left to apply"></span>
       </a>
     </section>
@@ -1638,13 +1638,13 @@
       }
 
       function setOpenState(daysLeft) {
-        var label = 'Deadline: Mon, 12 Oct';
-        var bottomLabel = 'Deadline: Mon, 12 Oct';
+        var label = 'Deadline: Tue, 13 Oct';
+        var bottomLabel = 'Deadline: Tue, 13 Oct';
         if (daysLeft <= 1) {
           label = 'Deadline: Today';
           bottomLabel = 'Deadline: Today';
         } else if (daysLeft <= 3) {
-          label = 'Deadline: Mon, 12 Oct (' + daysLeft + 'd left)';
+          label = 'Deadline: Tue, 13 Oct (' + daysLeft + 'd left)';
         }
         if (topTag) topTag.textContent = label;
         if (heroTag) heroTag.textContent = label;
